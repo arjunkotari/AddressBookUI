@@ -7,6 +7,7 @@
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;600&display=swap ">
         <link rel="stylesheet" href="../css/form.css">
         <title>AddressBook</title>
+        <script src="../js/form.js"></script>
 </head>
 <body>
   <header class="header-content header">
@@ -21,6 +22,49 @@
     <div class="form-content">
       <form class = "form" action="#" onsubmit="save();return false">
         <div class="form-head">PERSON ADDRESS BOOK FORM</div>
+        <div class="row-content">
+          <input class="input" type="text" id="name" required placeholder="Full Name" onkeyup="Name()" >
+          <error-output class="text-error" for="text"></error-output>
+        </div>
+        <div class="row-content">
+          <textarea class="input" type="text" id="address" required placeholder="Address" style="height:100px" onkeyup="Address()"></textarea>
+          <error-output class="add-error" for="text"></error-output>
+        </div>
+        <div class="row-content">
+          <div class="input">
+            <select name="city" id="city">
+              <option value="1">select city</option>
+              <option value="2">HYD</option>
+              <option value="3">NZB</option>
+              <option value="4">KMR</option>
+              <option value="5">KDP</option>             
+            </select>
+          <select id="state" name="state">
+              <option value="1">select State</option>
+              <option value="TS">TS</option>
+              <option value="AP">AP</option>
+              <option value="UP">UP</option>              
+          </select>
+          <select id="ZIP" name="ZIP">
+              <option value="1">Zip Code</option>
+              <option value="500990">500990</option>
+              <option value="588998">588998</option>
+              <option value="500011">500011</option>
+              <option value="500022">500022</option>
+              <option value="500033">500033</option>
+          </select>
+          </div>        
+        </div>  
+        <div class="row-content">
+          <input class="input" id="number" type="text" placeholder="Phone Number" required onkeyup="MobileNumber()"></textarea>
+          <error-output class="num-error" for="text"></error-output>
+        </div>     
+        <div class="buttonParent">          
+          <div class="submit-reset">
+            <button type="button" class="button">Add</button>
+            <button type="reset" class="button">Reset</button>
+          </div>
+        </div> 
       </form>
     </div>
   </body>
