@@ -46,8 +46,28 @@ window.addEventListener("DOMContentLoaded", (event) => {
 });
 
 function save() {
-    let contact = new Contact()
-    contact.id = new Date().getTime()
+    try {
+        let contact = createContact();
+        craeteAndUpdateStorage(contact)
+    } catch (error) {
+        alert(error);
+    }
+}
+
+function craeteAndUpdateStorage(contact) {
+    let contactList = JSON.parse(localStorage.getItem("ContactList"))
+    if (contactList != undefined) {
+        contactList.push(contact)
+    } else {
+        contactList = [contact]
+    }
+    alert("Contact Added Sucessfully")
+    localStorage.setItem("contactList", JSON.stringify(contactList))
+}
+
+function createContact() {
+    let contact = new Contact();
+    contact.id = new Date().getTime();
     try {
         contact.name = getInputValueById("#name");
     } catch (error) {
@@ -81,8 +101,8 @@ function save() {
         setTextValue(".zip-error", error);
         throw error;
     }
-
-    alert(contact.toString());
+    console.log(contact.toString());
+    return contact
 }
 
 function getInputValueById(property) {
