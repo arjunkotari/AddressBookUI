@@ -23,7 +23,7 @@ class Contact {
         return this._phoneNumber;
     }
     set phoneNumber(phoneNumber) {
-        let phoneNumberRegex = RegExp("^[0-9]{2}[ ][6-9]{1,}[0-9]{9}$");
+        let phoneNumberRegex = RegExp("^[0-9]{2}[ ][9]{1,}[0-9]{9}$");
         if (phoneNumberRegex.test(phoneNumber)) {
             this._phoneNumber = phoneNumber;
         } else {
